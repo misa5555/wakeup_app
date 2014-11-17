@@ -1,0 +1,38 @@
+<h1><%= @user.username %>'s page </h1>
+<table class="table">
+  <thead>
+    <th>Date</th>
+    <th>Wakeup Time</th>
+  </thead>
+  <tbody>
+  <% @posts.each do |post| %>
+    <tr>
+      <%- time = post.wakeup_time.to_s.split(" ") %>
+      <td><%= time[0] %></td>
+      <td><%= time[1] %></td>
+    </tr>
+    <% end %>
+  </tbody>  
+</table>
+
+<div class="panel panel-default submit-form">
+  <div class="panel-body form-body">
+    <form action="<%= user_posts_url(@user) %>" method="post" role="form">
+      <%= auth_token_input %>
+      <div class="form-group">
+        <label>
+          Date
+          <input type="date" name="post[date]" value="" class="form-control" placeholder="time">
+        </label>
+      </div>
+      <div class="form-group">
+        <label>
+          Time
+          <input type="time" name="post[time]" value="" class="form-control" placeholder="wakeup time">
+        </label>
+      </div>
+
+      <button type="submit" value="Sign In" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>

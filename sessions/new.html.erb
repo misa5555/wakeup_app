@@ -1,0 +1,25 @@
+<h1>Sign in</h1>
+ <div class="basic-form">
+    <div class="panel panel-default">
+      <div class="panel-body form-body">
+        <form action="<%= session_url %>" method="post" role="form">
+          <%= auth_token_input %>
+          <div class="form-group">
+            <label>
+              Username
+              <input type="text" name="user[username]" value="" class="form-control" placeholder="Enter username">
+            </label>
+          </div>
+          <div class="form-group">
+            <label>
+              Password
+              <input type="password" name="user[password]" value="" class="form-control" placeholder="longer than 6">
+            </label>
+          </div>
+
+          <button type="submit" value="Sign In" class="btn btn-primary">Sign in</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <%= params.inspect %>
